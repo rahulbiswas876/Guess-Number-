@@ -1,0 +1,47 @@
+#game {
+/*    outline: 1px solid red;*/
+    background-color: darkorange;
+    width: 55%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.highlight {
+    background-color: bisque;
+    padding: 3.8px;
+    border-radius: 5px;
+}
+
+.success {
+    background-color: lightgreen;
+    border-radius: 5px;
+    color: green;
+}
+
+.alert {
+    background-color: lightcoral;
+    border-radius: 5px;
+    color: red;
+    padding:5px;
+}
+
+#logo {
+    border: 2px solid red;
+    float: left;
+    display: inline-block
+}
+
+img {
+    width: 15%;
+}
+
+#logo-title {
+    border: 2px solid green;
+    float: left;
+}

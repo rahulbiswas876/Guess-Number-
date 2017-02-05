@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>
+            Guess Number game
+        </title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css"></link>
+    </head>
+    <body ng-app='app'>
+        <script type="text/javascript" src="./js/angular.min.js" ></script>
+        <script type="text/javascript">
+            angular.module('app', []).controller('GuessNumberCtrl' , GuessNumberCtrl);
+            function GuessNumberCtrl($scope) {
+
+                $scope.initializeGame = function() {
+                    $scope.numOfTries = 0;
+                    $scope.guess = null;
+                    $scope.original = Math.floor(Math.random()*1000 + 1);
+                }
+                
+                $scope.verifyGuess = function() {
+                    if($scope.guess != null && $scope.guess.length!=0){
+                        $scope.dev =  $scope.guess - $scope.original ;
+                        $scope.numOfTries += 1;
+                    }
+                }
+                
+                $scope.initializeGame();
+            }
+        </script>
+        <div id="header">
+            <div id="logo">
+                <img src="img/applelogo.jpg" alt="not found" />
+            </div>
+            <div id="logo-title">
+               <label>Apple Store</label> 
+            </div>
+        </div>
+        <div id="game" ng-controller='GuessNumberCtrl'>
+            <p> Guess Number between 1 and 1000 (both inclusive) </p>
+            <p> Guess : 
+                <input type="text"  ng-model="guess" /> 
+                <input type="button" value="Verify" ng-click="verifyGuess()" /> 
+                <input type="button" value="Restart" ng-click="initializeGame() " />
+            </p>
+            <label class="highlight">Tries : {{ numOfTries }}</label>
+            <p class="success" ng-show ="guess != null && dev==0" >Success</p>
+            <p class="alert" ng-show ="guess != null && dev > 0">Very Large !</p>
+            <p ng-show ="guess != null && dev < 0" style="color:yellow">Very small</p>
+        </div>
+    </body>
+</html>
